@@ -9,6 +9,10 @@ namespace app.Models.Views
 {
     public abstract class MonogameWindow : IMonogameElement
     {
+        protected double ratio;
+
+        public double Ratio { get => ratio; }
+
         public abstract void LoadContent(ContentManager content);
 
         public abstract void Draw(SpriteBatch spriteBatch, GameTime gameTime);

@@ -31,15 +31,13 @@ namespace app
         {
             // TODO: Add your initialization logic here
             this.Window.Title = "Santa Clash";
-            ChangeScreenDimensions(520);
             activeScene = new GameScreen();
 
             base.Initialize();
         }
 
-        private void ChangeScreenDimensions(int baseWidth = 640)
+        private void ChangeScreenDimensions(double ratio, int baseWidth = 640)
         {
-            double ratio = 7 / 5;
             _graphics.PreferredBackBufferWidth = baseWidth;
             _graphics.PreferredBackBufferHeight = (int)(baseWidth / ratio);
             Game1.screenDimensions = new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
