@@ -22,7 +22,7 @@ namespace app.Models.Agents
         public bool IsMoving { get => isMoving; }
 
         // Constructeur la classe...
-        protected AnimatedElement(Vector2 position, Vector2 velocity, int sizePourcent = 100, bool flipped = false, float rotation = 0, bool showHitbox = false) : base(position, velocity, sizePourcent, flipped, rotation)
+        protected AnimatedElement(Vector2 position, Vector2 velocity, int sizePourcent = 100, bool flipped = false, float rotation = 0) : base(position, velocity, sizePourcent, flipped, rotation)
         {
             this.animations = new Dictionary<string, Animation>();
             animationName = "";
@@ -47,9 +47,11 @@ namespace app.Models.Agents
             if (!animations.ContainsKey(animationName)) return;
 
             // Draw
+            float i = 2f;
             Animation anim = animations[animationName];
+            Vector2 origin = new Vector2(anim.CurrentFrame.Width / i, anim.CurrentFrame.Height / i);
             SpriteEffects effects = this.Flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(Texture, Position, anim.CurrentFrame, Color.White, Rotation, Vector2.Zero, Scale, effects, 0f);
+            spriteBatch.Draw(Texture, Position, anim.CurrentFrame, Color.White, Rotation, origin, Scale, effects, 0f);
 
             // Afficher la hitbox
             if (ShowHitbox)
