@@ -19,7 +19,7 @@ namespace app.Models.Agents
 
         public override void LoadContent(ContentManager content)
         {
-            content.Load<Texture2D>("santa");
+            this.texture = content.Load<Texture2D>("santa");
 
             // Animations
             List<Rectangle> l = new List<Rectangle>();
@@ -30,7 +30,7 @@ namespace app.Models.Agents
 
         public override void Update(GameTime gameTime)
         {
-            this.CurrentAnimationObject.Update(gameTime);
+            CurrentAnimationObject.Update(gameTime);
         }
     }
 }

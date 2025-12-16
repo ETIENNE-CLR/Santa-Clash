@@ -18,7 +18,7 @@ namespace app.Models.Views
 
         public TitleScreen()
         {
-            logo = new ImageView("logo", new Vector2(Game1.ScreenDimensions.Width / 2, Game1.ScreenDimensions.Height * 2 / 5), 60);
+            logo = new ImageView("logo", new Vector2(Game1.ScreenDimensions.Width / 2, Game1.ScreenDimensions.Height * 2 / 5), 80);
             btnPlay = new Button(
                 normalForm: new Rectangle(0, 170, 160, 83),
                 clickedForm: new Rectangle(160, 0, 160, 83),
